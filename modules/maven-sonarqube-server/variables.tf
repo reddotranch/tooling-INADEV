@@ -17,7 +17,7 @@ variable "instance_type" {
 variable "key_name" {
   description = "The key name for the Jenkins server"
   type        = string
-  default     = "web-key"
+  default     = "inadev-key"
 }
 
 variable "main-region" {

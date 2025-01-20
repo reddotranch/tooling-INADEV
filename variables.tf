@@ -14,7 +14,7 @@ variable "instance_type" {
 variable "key_name" {
   description = "The key name for the instances"
   type        = string
-  default     = "web-key"
+  default     = "inadev-key"
 }
 
 ##########################
@@ -33,17 +33,17 @@ variable "subnet_id" {
 ##########################
 #TF state file
 ##########################
-variable "s3_bucket" {
-  description = "The name of the S3 bucket for storing Terraform state"
-  type        = string
-  default     = "east-inadev-tfstate"
-}
+#variable "s3_bucket" {
+#  description = "The name of the S3 bucket for storing Terraform state"
+#  type        = string
+#  default     = "east-inadev-tfstate"
+#}
 
-variable "dynamodb_table" {
-  description = "The name of the DynamoDB table for state locking"
-  type        = string
-  default     = "terraform-state-lock-table"
-}
+#variable "dynamodb_table" {
+#  description = "The name of the DynamoDB table for state locking"
+#  type        = string
+#  default     = "terraform-state-lock-table"
+#}
 
 variable "main-region" {
   description = "The AWS region to deploy resources"
