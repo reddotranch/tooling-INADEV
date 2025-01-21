@@ -8,3 +8,11 @@ resource "aws_instance" "jenkins_server" {
     Name = "jenkins-server"
   }
 }
+
+# EIP configuration
+resource "aws_eip" "jenkins_server_eip" {
+  instance = aws_instance.jenkins_server.id
+  tags = {
+    Name = "jenkins-server"
+  }
+}

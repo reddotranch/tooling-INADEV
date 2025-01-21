@@ -10,3 +10,12 @@ resource "aws_instance" "sonarqube" {
     Name = "Maven-Sonarqube-Server"
   }
 }
+
+
+# EIP configuration
+resource "aws_eip" "sonarqube_eip" {
+  instance = aws_instance.sonarqube.id
+  tags = {
+    Name = "Maven-Sonarqube-Server"
+  }
+}
