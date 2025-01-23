@@ -61,26 +61,11 @@ trigger_jenkins_job() {
   local crumb="3bc54c6006209d85ae8ce71b1cacc0d5f08036c0209e5539a0ebd41a4c0bbb3d"
 
   echo "Triggering Jenkins job..."
+  read -p "Enter the value for 'Deployment_Type' parameter (Apply/Destroy): " Deployment_Type
+  read -p "Enter the value for 'Manual_Approval' parameter (Approve/Reject): " Manual_Approval
 
-  # Prompt the user for Deployment_Type and Manual_Approval values
-  read -p "Enter the value for 'Deployment_Type' (apply/destroy): " Deployment_Type
-  read -p "Enter the value for 'Manual_Approval' (Approve/Reject): " Manual_Approval
-
-  # Validate user input for Deployment_Type
-  if [[ ! "$Deployment_Type" =~ ^(apply|destroy)$ ]]; then
-    echo "Invalid 'Deployment_Type'. Please enter 'apply' or 'destroy'."
-    exit 1
-  fi
-
-  # Validate user input for Manual_Approval
-  if [[ ! "$Manual_Approval" =~ ^(Approve|Reject)$ ]]; then
-    echo "Invalid 'Manual_Approval'. Please enter 'Approve' or 'Reject'."
-    exit 1
-  fi
-
-  # Trigger the Jenkins job with the provided parameters
   response=$(curl -I -X POST -u "$jenkins_user:$jenkins_password" \
-    "$jenkins_url?token=$jenkins_token&Manual_Approval=$Manual_Approval&Deployment_Type=$Deployment_Type" \
+    "$jenkins_url?token=$jenkins_token" \
     -H "Jenkins-Crumb:$crumb" 2>/dev/null)
 
   if echo "$response" | grep -q "HTTP/1.1 200"; then
