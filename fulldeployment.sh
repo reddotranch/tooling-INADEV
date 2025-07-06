@@ -2,7 +2,7 @@
 
 # Function to check AWS region
 check_aws_region() {
-  local required_region="us-east-2"
+  local required_region="us-west-2"
   local current_region=$(aws configure get region)
 
   if [[ "$current_region" != "$required_region" ]]; then
@@ -14,7 +14,7 @@ check_aws_region() {
 
 # Function to ensure script is running in ~/Documents/EKS-PROJECT-INADEV-2025/tooling-INADEV
 ensure_correct_directory() {
-  local required_directory="/Users/fullblast/Documents/EKS-PROJECT-INADEV-2025/tooling-INADEV"
+  local required_directory="/Users/ubuntu/EKS-PROJECT-BETECH-2025/tooling-INADEV"
   if [[ "$PWD" != "$required_directory" ]]; then
     echo "Error: Script must be run from $required_directory."
     echo "Please navigate to $required_directory and try again."
@@ -54,7 +54,7 @@ run_terraform_workflow() {
 
 # Function to trigger Jenkins job
 trigger_jenkins_job() {
-  local jenkins_url="https://jenkins1.kubeigu.plainandplane.com/job/terraform-pipeline/buildWithParameters"
+  local jenkins_url="https://jenkins1.betechsol.com/job/terraform-pipeline/buildWithParameters"
   local jenkins_token="weatherbackend"
   local jenkins_user="admin"
   local jenkins_password="11869114375ed57d58bf30176361b016d0"

@@ -1,7 +1,7 @@
 variable "ami_id" {
   description = "The AMI ID for the instances"
   type        = string
-  default     = "ami-0cb91c7de36eed2cb"
+  default     = "ami-0ec1bf4a8f92e7bd1"
 }
 
 variable "instance_type" {
@@ -14,7 +14,7 @@ variable "instance_type" {
 variable "key_name" {
   description = "The key name for the instances"
   type        = string
-  default     = "inadev-key"
+  default     = "dev-pipeline"
 }
 
 ##########################
@@ -36,7 +36,7 @@ variable "subnet_id" {
 variable "s3_bucket" {
   description = "The name of the S3 bucket for storing Terraform state"
   type        = string
-  default     = "east-inadev-tfstate"
+  default     = "west-betech-tfstate"
 }
 
 variable "dynamodb_table" {
@@ -48,5 +48,5 @@ variable "dynamodb_table" {
 variable "main-region" {
   description = "The AWS region to deploy resources"
   type        = string
-  default     = "us-east-2"
+  default     = "us-west-2"
 }
