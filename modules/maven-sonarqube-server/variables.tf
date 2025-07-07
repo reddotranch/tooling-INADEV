@@ -1,12 +1,12 @@
 variable "region" {
   description = "The AWS region to deploy to"
-  default     = "us-east-2"
+  default     = "us-west-2"
 }
 
 variable "ami_id" {
   description = "The AMI ID for the EC2 instance"
   type        = string
-  default     = "ami-0cb91c7de36eed2cb"
+  default     = "ami-0ec1bf4a8f92e7bd1"
 }
 
 variable "instance_type" {
@@ -17,23 +17,26 @@ variable "instance_type" {
 variable "key_name" {
   description = "The key name for the Jenkins server"
   type        = string
-  default     = "inadev-key"
+  default     = "dev-pipeline"
 }
 
 variable "main-region" {
   description = "The AWS region to deploy resources"
   type        = string
-  default     = "us-east-2"
+  default     = "us-west-2"
 }
 
-variable "security_group_id" {
-  description = "The security group ID to attach to the instance"
+variable "vpc_id" {
+  description = "The VPC ID"
   type        = string
-  default     = "sg-072019c391e521148"
 }
 
 variable "subnet_id" {
-  description = "The subnet ID where the instance will be deployed"
+  description = "The Subnet ID"
   type        = string
-  default     = "subnet-02dbcffbed6d9f6f4"
+}
+
+variable "security_group_id" {
+  description = "The Security Group ID"
+  type        = string
 }

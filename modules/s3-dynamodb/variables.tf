@@ -1,7 +1,7 @@
 variable "s3_bucket" {
   description = "The name of the S3 bucket for storing Terraform state"
   type        = string
-  default     = "east-inadev-tfstate"
+  default     = "west-betech-tfstate"
 }
 
 variable "dynamodb_table" {
@@ -13,4 +13,5 @@ variable "dynamodb_table" {
 variable "main-region" {
   description = "The AWS region to deploy resources"
   type        = string
-  default     = "us-east-2"
+  default     = "us-west-2"
+}

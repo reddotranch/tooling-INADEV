@@ -38,7 +38,7 @@ sudo apt install certbot python3-certbot-nginx -y
 sudo tee /etc/nginx/sites-available/jenkins.conf > /dev/null <<EOL
 server {
     listen 80;
-    server_name jenkins1.kubeigu.plainandplane.com;
+    server_name jenkins1.betechsol.com;
 
     location / {
         proxy_pass http://localhost:8080;
@@ -60,7 +60,7 @@ sudo nginx -t
 sudo systemctl reload nginx
 
 # Obtain an SSL certificate using Certbot and configure Nginx
-sudo certbot --nginx -d jenkins1.kubeigu.plainandplane.com --email tdwaws2024@gmail.com --non-interactive --agree-tos --redirect
+sudo certbot --nginx -d jenkins1.betechsol.com --email betechincorporated@gmail.com --non-interactive --agree-tos --redirect
 
 # Setup a cron job to automatically renew the certificate
 echo "0 0 * * * /usr/bin/certbot renew --quiet" | sudo tee -a /etc/crontab > /dev/null
@@ -68,4 +68,4 @@ echo "0 0 * * * /usr/bin/certbot renew --quiet" | sudo tee -a /etc/crontab > /de
 # Restart Nginx to apply SSL configuration
 sudo systemctl restart nginx
 
-echo "Jenkins is now accessible via https://jenkins1.kubeigu.plainandplane.com"
+echo "Jenkins is now accessible via https://jenkins1.betechsol.com"
